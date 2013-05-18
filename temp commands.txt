@@ -1,0 +1,2 @@
+git show <rev>:<file_new> | Out-File -encoding ASCII -Width 2147483647 <file_old>
+latexdiff <file_old> <file_new> > <file_diff>
