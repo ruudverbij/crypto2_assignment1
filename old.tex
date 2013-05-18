@@ -1,0 +1,428 @@
+% This is "bach-ref-2009.tex" Updated january 29th 2010.
+% This file should be compiled with "sig-alternate-fixed.cls" January 2010.
+% It is based on the ACM style "sig-alternate.cls"
+% -------------------------------------------------------------------------
+% This example file demonstrates the use of the 'sig-alternate-fixed.cls'
+% V2.5 LaTeX2e document class file. It is for those submitting
+% articles to the Twente Student Conference on IT. Both this file as the 
+% document class file are based upon ACM documents.
+%
+% ----------------------------------------------------------------------------------------------------------------
+% This .tex file (and associated .cls) produces:
+%       1) The Permission Statement
+%       2) The Conference (location) Info information
+%       3) The Copyright Line TSConIT
+%       4) NO page numbers
+%       5) NO headers and/or footers
+%
+%
+% Using 'sig-alternate.cls' you have control, however, from within
+% the source .tex file, over both the CopyrightYear
+% (defaulted to 200X) and the ACM Copyright Data
+% (defaulted to X-XXXXX-XX-X/XX/XX).
+% e.g.
+% \CopyrightYear{2007} will cause 2007 to appear in the copyright line.
+% \crdata{0-12345-67-8/90/12} will cause 0-12345-67-8/90/12 to appear in the copyright line.
+%
+% ---------------------------------------------------------------------------------------------------------------
+% This .tex source is an example which *does* use
+% the .bib file (from which the .bbl file % is produced).
+% REMEMBER HOWEVER: After having produced the .bbl file,
+% and prior to final submission, you *NEED* to 'insert'
+% your .bbl file into your source .tex file so as to provide
+% ONE 'self-contained' source file.
+%
+
+% refers to the cls file being used
+\documentclass{sig-alternate-br}
+
+\usepackage{graphicx}
+\usepackage{rotating}
+
+\begin{document}
+%
+% --- Author Metadata here --- DO NOT REMOVE OR CHANGE 
+\conferenceinfo{17$^{th}$ Twente Student Conference on IT}{June 25$^{th}$, 2012, Enschede, The Netherlands.}
+\CopyrightYear{2012} % Allows default copyright year (200X) to be over-ridden - IF NEED BE.
+%\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
+% --- End of Author Metadata ---
+
+\title{New Exchange Model for Child Pornography Analysis}
+
+\numberofauthors{1}
+\author{
+\alignauthor
+Ruud Verbij \\
+       \affaddr{University of Twente}\\
+       \affaddr{P.O. Box 217, 7500AE Enschede}\\
+       \affaddr{The Netherlands}\\
+       \email{cp@ruudverbij.nl}
+}
+\date{12th of June 2012}
+
+\maketitle
+\begin{abstract}
+This research concentrates around the topic of the criminal exchange of child pornography material on the Internet. The existing scientific material on this criminal exchange lacks technical details that could help police detectives work more efficiently in child pornography cases. This paper specifies a new criminal exchange model of child pornography that describes (1) the current child pornography user behavior and (2) the new Internet based communication media and anonymization techniques used by child pornography offenders. The specified criminal exchange model has been evaluated and verified by interviewing police detectives concerned with online child \\pornography cases.
+\end{abstract}
+
+\keywords{child pornography, high tech crime, criminal exchange\\ model}
+
+
+\section{Introduction}
+With the arrest of Robert M. in December 2010 \cite{site:bbc} the Netherlands' police agency caught, allegedly, the biggest child abuser ever in the Netherlands. On his computer, detectives found (hidden in a partially deleted TrueCrypt folder) eight terabyte containing images and videos of child abuse. Along with the images and videos came the digital equivalent of 64.000 A4 papers containing chat logs with other child abusers, which led to the arrest of numerous of other child abusers in the Netherlands, Norway, Germany, the United States, Australia and many more countries. These arrests led to the question whether current detection methods used by police agencies to catch child abusers are still valid for the new Internet era \cite{wijk2009achter}. The current detection methods are based upon exchange models of child pornography (CP) which may not really be adapted to this new era and therefore they may need to be revised. This research will try to answer the question of how to revise such exchange models to satisfy the need of police detectives for better analysis and detection methods. 
+
+Digital CP can be defined in multiple ways, this research will use a definition that is derived from the legal definition given by \cite{beech2008internet}, which cites the PROTECT Act of 2003:
+\begin{quote}
+	"...it is a crime to posses, manufacture or distribute pornography containing visual depictions of (a) a real child engaging in sexual acts or (b) a digital image, computer image, or computer generated image that is, or is indistinguishable from that of a minor engaged in sexually explicit conduct." from (18 U.S. Code Paragraph 2256(8) (B))
+\end{quote}
+This research acknowledges the legal definition of CP but it is not taking into account the issues related to computer generated images since they need to use different solutions than the ones discussed in the paper. Furthermore, images and videos are widened to encompass digital material, leading to the following CP definition that is used by this research:
+\begin{quote} 
+	Digital child pornography is defined as digital pornography containing visual depictions of a real child engaging in sexual acts or a minor engaged in sexually explicit conduct. 
+\end{quote}
+
+In order to be able to describe the criminal process involved in the distribution, a type of model should be introduced to model the different steps involved in the process. This research will use Crime Schemes as proposed in \cite{willison2006understanding}. Steps in this process follow a flow. This means that certain processes depend on others, which need to be performed first. Groups of processes (categories) belong to each other and together form a category in the simplified model of the crime. In stealing a bike for example, there are different steps in how to break the lock, but they relate to each other and form the 'breaking the lock' category in the simplified model. Some different paths exist in breaking the lock, but it is always right to consider that one needs to first break the lock, before removing it from the bike. Since this research investigates exchange models and describes them via crime schemes, such an exchange model will from now on be called a criminal exchange model.
+
+Different authors have suggested that there should be more scientific research into the area of criminal exchange models of CP \cite{wijk2009achter, wolak2005child, zee2007kinderpornografische}. They conclude that most of what is known about the exchange of CP is due to successful arrests and that there are exchange methods (involving high tech components) which are not yet found by police detectives. Therefore new research must be conducted to gather more information on these high tech crime components in the exchange of CP which could then be included in the existing criminal exchange models.
+
+The main research question in this research is `How can the currently used main criminal exchange models of child pornography be adapted to describe (1) the current child pornography user behavior and (2) the new Internet based communication media and anonymization techniques used by child pornography offenders?'. This main research question is divided into three different sub questions:
+\begin{enumerate}
+	\item What are the currently used main criminal exchange models of CP?
+	\item What are the main differences between the communication media used in the past and today in the exchange of CP?
+	\item How can the changes associated with the current CP user behavior and the new internet based communication media be reflected in the currently used main criminal exchange models of CP? 
+\end{enumerate}
+
+The research questions (1) and (2) are answered using a literature study. Finally, research question (3) is answered by proposing a new CP criminal exchange model and by verifying it using interviews with seven police detectives that are concerned with the recent arrests of several child pornography offenders.
+
+This paper is organized as follows. In Section 2 an overview of the current criminal exchange models of CP is given. Furthermore, this section provides the answer of the research question (1). Section 3 provides the technical enhancements on the CP criminal exchange models, providing the answer to research question (2). In Section 4 a new CP criminal exchange model is proposed, which is verified by interviewing police detectives that are involved with the recent arrests of several child pornography offenders. Moreover, this section answers research question (3). Section 5 concludes and provides recommendations for future work.
+
+
+\section{Child Pornography Exchange Models}
+This section provides an overview of the current criminal CP exchange model. Furthermore, this section derives criteria and compares the discussed criminal CP exchange models.
+
+Several papers and books briefly mention the exchange of CP, such as \cite{wolak2005child, jenkins2001beyond, webb2007characteristics}, which briefly focus on CP exchange via Internet and, \cite{quayle2002paedophiles, beech2008internet}, which briefly focus on the CP exchange via usenet, bulletin boards or websites. However, only few of these papers that describe the CP exchange, 	go into more detail, see e.g. \cite{en2011phishing,wortley2006child,wijk2009achter,callanan2009internet}. The description level of detail used by papers is quite different and will therefore be elaborated in different sections.
+
+However, only Faber et al. \cite{en2011phishing} provides a more complete description of a criminal CP exchange model. The other criminal CP exchange models discussed in this paper are derived by the author of this paper by carefully studying the information contained in the referenced papers and books.
+
+In Table \ref{tables:exchangeModelsCompared} the different criminal CP exchange models are compared. These CP exchange models are compared using the following criteria: 
+
+\begin{itemize}
+	\item Completeness of the criminal exchange model: this refers to the number of categories modeled by the criminal exchange model. 
+		The steps defined in this research, which need to be modeled by a criminal exchange model are:
+		\begin{itemize}
+			\item \textit{Production}: The physical abuse and the recording of it. Also location selection, victim recruiting, editing, lighting, restructuring of the video, etc. fall in this category, since this research is not focused upon this category and only needs a way to model all processes that are not involved in the criminal exchange model.
+			\item \textit{Hiding}: Hiding information that could lead to the producer or distributor, by using techniques such as encryption and stenography \cite{krone2005international}.
+			\item \textit{Distribution}: Making CP material available for others to download/view.
+			\item \textit{Downloading}: Downloading or streaming CP material.
+			\item \textit{Storage}: Storing CP material and possibly hiding it.
+		\end{itemize}
+		In Table \ref{tables:exchangeModelsCompared}, the grade ++ represents the situation that all the steps mentioned above are supported, while - - means that none of these steps are supported.
+	\item Modeling of Anonymity: this refers to whether the criminal exchange model, models in detail the support of anonymity in the criminal CP process. \\Anonymity support refers to the support of activities in such a way that the identity of the CP user cannot be detected. In Table \ref{tables:exchangeModelsCompared}, the grade ++ represents the situation that a criminal exchange model provides all means to model Anonymity support. The grade - - represents the situation that the criminal exchange model does not  provide any means of modeling Anonymity support.
+	\item Modeling of Distribution types: this refers to whether the criminal exchange model, models in detail the support of Distribution type in the CP process. Distribution type refers to the way of how the CP media is distributed. In Table \ref{tables:exchangeModelsCompared}, the grade ++ represents the situation that a criminal exchange model provides all means to model the Distribution type. The grade - - represents the situation that the criminal exchange model does not provide any means of modeling the Distribution type.
+	\item Transaction type: this refers to the type of transactions involved within the Criminal CP process. These transactions can be either Financial means (money) or CP interchange material. 
+\end{itemize}
+
+
+\subsection{Faber et al., 2011 \cite{en2011phishing}}
+Figure \ref{fig:faber_01} gives the visual representation of the criminal CP exchange model proposed by \cite{en2011phishing}. This figure shows four different categories (\textit{Production},\textit{Hiding}, \textit{Distribution} and \textit{Storage}). \cite{en2011phishing} groups different steps in the process of the CP exchange. The step \textit{Editing} is not included in such a group since it is not considered as being an important step in the criminal CP scheme.
+
+Faber et al. \cite{en2011phishing} is the only research document that describes some sort of criminal exchange model for the criminal process of CP. This criminal CP exchange model \cite{en2011phishing} describes the process that is sketched in Figure \ref{fig:faber_01}. The \textit{Editing} event is just a video editing event and therefore it can be left out of the exchange model. The different types of steps that could be taken in the \textit{Coding} event are similar to what other authors have concluded (i.e. \cite{wortley2006child, jenkins2001beyond,wolak2005child}). It includes untraceability, invisibility, illegibility and unrecognizability. The \textit{Payment} event does not only involve cash payments, but also includes interchange of CP material that is found in several other articles as well (i.e. \cite{wortley2006child,wijk2009achter,wolak2005child}). The \textit{Distribution} event only covers the description different communication media such as newsgroups \cite{site:usenet}, bulletin boards \cite{site:bulletin}, P2P \cite{site:p2p}, e-mail, IRC \cite{site:IRC}, FTP \cite{site:FTP} and websites, but lacks to clarify the specifics for CP exchange on those communication media or the amount of usage on these different communication media. The authors of \cite{en2011phishing} make a clear distinction between the exchange via a website (acquire domain, acquire hosting and distribution) and exchange via other media (acquire costumers, payment, distribution). This is in clear contrast with different other papers, \cite{wortley2006child,wijk2009achter,callanan2009internet}, which all state that using a website to distribute CP always includes a payment.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale = 0.65, trim = 20 620 0 10]{images/Faber.pdf}
+\caption{Part of the Crime Scheme as proposed by Faber et al. in \cite{en2011phishing}}
+\label{fig:faber_01}
+\end{figure}
+
+The \textit{Abuse Recording} step is thoroughly described, covering topics as the severity of the recordings \cite{quayle2002paedophiles}, but it also covers topics such as the victim selection, grooming, consolidation, staff recruitment and location selection. The \textit{Editing} step involves the anonymization of the abuse, making scenes, compiling it, making descriptions, etc. The \textit{Acquire Domain} and \textit{Hosting} involve the process of getting a website and domain name to spread the material. This can be bought online using (stolen) credit cards, web money or servers that could be hacked. The \textit{Acquire Customers} event, describes the process of getting customers to find the CP material, in addition to websites, it involves mass mailing and it provides adds on the normal porn websites or getting inside costumers from fora or networks. The \textit{Payment} event could be either money (using (stolen) credit cards, web money, billing companies) or interchange of CP material. The \textit{Distribution} process involves the uploading and downloading of the CP material via virtual communities, news groups, fora, p2p, e-mail, chat, FTP and websites. The \textit{Storage} step involves storing the material and hiding it from authorities and other users of that computer or network.
+
+The processes modeled by Faber et al. involving the abuse and pre-abuse steps are in this research modeled to one process called \textit{Abuse Recording}, and therefore it is classified into the \textit{Production} category. The steps modeled in the process \textit{Coding} are used to hide the producer's and distributor's identity and is therefore classified into the \textit{Hiding} category. The processes that cover the \textit{Acquire Customers} steps and the steps of leading them to the CP material are grouped together with the actual distribution and payment processes to form the \textit{Distribution} category. The storage process modeled by Faber et al. is considered to be the \textit{Storage} category in this research.
+
+Faber et al. elaborates thoroughly on the criminal CP exchange model and therefore are rated with a + on the completeness of the criminal model. The model lacks on providing details on modeling the anonymity and the ability to model Anonymity Support is therefore rated with a -. Faber et al. also lacks on providing up-to-date distribution media and is therefore rated with a -. The types of transactions involved are both Money and the Interchange of CP material, see Table \ref{tables:exchangeModelsCompared}.
+
+\subsection{Wortley et al., 2006 \cite{wortley2006child}}
+Figure \ref{fig:wortley_01} provides the visual representation of the criminal CP exchange model proposed in \cite{wortley2006child}. This figure shows three different groups of processes (\textit{Production}, \textit{Distribution} and \textit{Downloading}).
+Wortley et al. \cite{wortley2006child} emphasize that recent police activity on different open or semi-closed networks has led most CP users to change their communication means to more closed networks such as closed P2P networks, closed bulletin boards and closed chat rooms instead of websites, e-mail and newsgroups. Similar results are found in \cite{wijk2009achter, callanan2009internet}. Furthermore, Wortley et al. state that there are hardly any financial interactions involved within the process of distribution since almost all new material is produced by amateurs who do not seek financial gain in their child abuse. This resembles findings by other research activities (i.e., \cite{beech2008internet,wijk2009achter}) but it contradicts findings provided by, among others, the UN in 2006 (cited in \cite{wijk2009achter}). The UN stated that global CP exchange made about 6 billion dollar in 2005. Furthermore \cite{webb2007characteristics}, states that about 50\% of all CP users have paid to watch CP. The information provided by \cite{beech2008internet,wijk2009achter}, \cite{webb2007characteristics} show that there is a big market for CP exchange. Wortley et al., \cite{wortley2006child} lacks to provide the necessary details on the specifics on the different communication media for the CP exchange.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale = 0.65, trim = 20 720 0 25]{images/Wortley.pdf}
+\caption{Derived Crime Scheme from Wortley et al. in \cite{wortley2006child}}
+\label{fig:wortley_01}
+\end{figure}
+
+The \textit{Production} process models the production of material, mostly made by amateurs but also covers professional recordings. The \textit{Distribution} process describes in short the existence of pedophile rings or organized crime groups that interchange the CP material on different platforms like websites, e-mail, instant messages, newsgroups, bulletin boards, chat and p2p. The \textit{Downloading} process describes the actual search for CP material by CP users. In \cite{wortley2006child}, it is stated that mass mailings and the ads on normal porn websites hardly exist anymore.
+
+The process described by Wortley et al. as the \textit{Production} process is modeled as the \textit{Production} category. The \textit{Distribution} process is modeled as the \textit{Distribution} category and the \textit{Downloading} process is modeled as the \textit{Downloading} category.
+
+Wortley et al. do not elaborate thoroughly on the criminal CP exchange model, therefore the completeness of the criminal model is rated with a + / -. The modeling of Anonymity Support is not supported and therefore rated with a - -. The ability to model up-to-date distribution media is a little bit better and therefore rated with a -.  The type of transactions involved is only the Interchange of CP material, see Table \ref{tables:exchangeModelsCompared}.
+
+\subsection{Van Wijk et al., 2009 \cite{wijk2009achter}}
+Figure \ref{fig:wijk_01} depicts the visual representation of the criminal exchange model provided by \cite{wijk2009achter}. This figure shows four different groups of processes (\textit{Production}, \textit{Distribution}, \textit{Downloading} and \textit{Storage}).
+
+Van Wijk et al. \cite{wijk2009achter} describes four different types of distribution; commercial distribution (via mail delivery), commercial websites (pay by credit card or emoney), open networks (open IRC channels, open P2P networks, open bulletin boards) and closed networks (chat, e-mail, closed bulletin boards and closed P2P networks). Due to recent police activity against CP, more or less all distribution belongs to the last category, i.e. closed networks, see \cite{wortley2006child, callanan2009internet}. Van Wijk et al. takes a closer look into the high tech components involved in the \textit{distribution} process. However, the focus is more on the CP downloaders instead of being on the CP distributors. Some of the mentioned high tech components involve (1) virtual hard drives to browse without leaving traces on the computer \cite{site:VHD}, (2) the use of disk encryption software to hide downloaded material on specific parts of the hard drive \cite{site:diskenc}, (3) the use of proxy servers as storage locations or to browse anonymously \cite{site:proxy} and (4) software to erase a hard drive.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale = 0.65, trim = 20 650 0 0]{images/VanWijk.pdf}
+\caption{Derived Crime Scheme from Van Wijk et al. in \cite{wijk2009achter}}
+\label{fig:wijk_01}
+\end{figure}
+
+The process described by Van Wijk et al. as \textit{Production} is mentioned in the model, but no further information is given about this step. The \textit{Distribution} step is different from earlier models and elaborates more on the different distribution media. The distribution is split in four different types of distribution.
+\begin{itemize}
+	\item Commercial distribution: uses post-order to order CP material online and receive it by post mail. 
+	\item Commercial websites: websites that run on servers mostly located in eastern European cities, which are distributing the CP material by selling it online.
+	\item Open networks: networks, which can be used to distribute CP material without requiring any password or security protection. Such open networks are: open P2P networks, open chat rooms and open bulletin boards.
+	\item Closed networks: networks that can be used to distribute CP material using the same media as the open networks, but which are closed by using password and security protection, such as encryption and decryption.
+\end{itemize}
+
+The \textit{Production} process is modeled as the \textit{Production} category. The different distribution media are grouped together as the \textit{Distribution} category since all these distribution media types involve the characteristics of this category. The \textit{Downloading} process is modeled as the \textit{Downloading} category and the \textit{Storage} process is modeled as the \textit{Storage} category.
+
+Van Wijk et al. elaborates on the criminal exchange model and the completeness of the criminal model is therefore rated with a +. It also presents some details on the Anonymity support and therefore it is rated with a +. The ability to model up-to-date distribution media is relatively extensive and therefore rated with a +. The types of transactions involved are encompassing both Money and Interchange of CP material, see Table \ref{tables:exchangeModelsCompared}.
+
+\subsection{Callanan et al., 2009 \cite{callanan2009internet}}
+Figure \ref{fig:callanan_01} depicts the visual representation of the criminal exchange model provided in \cite{callanan2009internet}. This figure shows two different groups of processes (\textit{Downloading} and \textit{Distribution}).
+
+Callanan et al. \cite{callanan2009internet} describes different communication media used to distribute CP material than the other CP exchange models described in the previous subsections. In particular, \cite{callanan2009internet} describes Freenet \cite{site:freenet} as a way to distribute CP material in encrypted and sliced packets which are then distributed to users of Freenet on a P2P manner (including non CP users). Freenet supports multiple anonymization options, making it possible to easily hide the identity of its users. Furthermore, \cite{callanan2009internet} describes several characteristics of Usenet system and the incentives of why this system is used among CP users. Both these communication media (i.e., \textit{Distribution} process) have the characteristic that it is really hard to delete the CP material once it has been distributed.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale = 0.65, trim = 20 690 0 40]{images/Callanan.pdf}
+\caption{Derived Crime Scheme from Callanan et al. in \cite{callanan2009internet}}
+\label{fig:callanan_01}
+\end{figure}
+
+The \textit{Hiding Identity} process describes different communication media that could be used either by downloaders of distributors for the exchange of CP. The actual downloading process models Anonymity Support by those communication media. The distribution process describes the Anonymity Support offered to distributors of CP material.
+
+\cite{callanan2009internet} describes various methods of identity hiding, which in turn could be used for downloading and/or distribution. The \textit{Hiding} identity process describes different communication media that could be used by either CP material downloaders or CP material distributors. The actual \textit{Downloading} process encompasses the anonymity support used by those communication media. The \textit{Distribution} process encompasses the anonymity support offered to distributors of CP material. The \textit{Hiding Identity} process as modeled by Callanan et al. cannot be classified in any of the categories introduced at the introductory part of this section. In particular, this process encompasses both the identity hiding of CP material downloaders and CP material distributors. The \textit{Downloading} process is modeled as the \textit{Downloading} category and the \textit{Distribution} process is modeled as the \textit{Distribution} category.
+
+Callanan et al. does not elaborate on the criminal exchange model and the completeness of the criminal model is therefore rated with a -. The detailed description of Anonymity support is rated with a + +. The detailed description of up-to-date distribution media is also rated with a + +, since it is very elaborative. The types of transactions involved are not discussed, see Table \ref{tables:exchangeModelsCompared}.
+
+\subsection{Conclusion}
+A comparison between the criminal CP exchange models described in this section is depicted in Table \ref{tables:exchangeModelsCompared}. The criteria used for this comparison are given in the introductory part of section 2.1.
+From this table it can be seen that the only detailed criminal CP exchange model is found in \cite{en2011phishing}. The components of this model are mentioned by other authors as well, except for the lack of payment in distribution via websites, which is not covered in \cite{en2011phishing}. The amount of usage of different communication media has made a switch from open networks to more closed ones as found by \cite{wortley2006child,wijk2009achter}. The types of CP payment methods mentioned in the exchange models differ. Though, it can be stated that the more advanced a CP user is, the less likely he/she will favor paying for CP material. In particular, he/she will be far more interested in interchanging CP material, and thereby becoming more and more important in the online world of CP exchange \cite{wijk2009achter,quayle2002paedophiles,krone2005international,en2011phishing}. \cite{wijk2009achter} describes several high tech components involved in the CP material \textit{Downloading} process and its \textit{Distribution} (virtual hard disks, disk encryption software and proxy servers). \cite{callanan2009internet} describes in more detail several communication media types (Usenet and Freenet) and the anonymity support used for the actual CP material distribution. However, \cite{callanan2009internet} is not providing any information on the used transaction types. \cite{en2011phishing} and \cite{wijk2009achter} use both Money and Interchange of CP material as transaction types, while \cite{wortley2006child} uses only the interchange of CP material as transaction type.
+
+\begin{table}[!ht]
+\caption{Comparison of current criminal CP exchange models}
+\begin{tabular}{|p{0.16\columnwidth}||p{0.15\columnwidth}|p{0.15\columnwidth}|p{0.15\columnwidth}|p{0.20\columnwidth}|}
+\hline
+\begin{sideways} \parbox{30mm}{\centering Author} \end{sideways} & \begin{sideways} \parbox{30mm}{\centering Completeness of the criminal exchange model} \end{sideways} & \begin{sideways} \parbox{30mm}{\centering Modeling of Anonymity} \end{sideways} &  \begin{sideways} \parbox{30mm}{\centering Modeling of Distribution types} \end{sideways} & \begin{sideways} \parbox{30mm}{\centering Transaction type} \end{sideways} \\ \hline & \\[-1em]\hline
+Faber et al. \cite{en2011phishing} & + & - & - & Money and interchange \\ \hline
+Wortley et al. \cite{wortley2006child} & +/- & - - & -  & Interchange \\ \hline
+Van Wijk et al. \cite{wijk2009achter}   & + & + & + & Money and interchange \\ \hline
+Callanan et al. \cite{callanan2009internet}   & - & + + & + + & Not discussed \\ \hline
+\end{tabular}
+\label{tables:exchangeModelsCompared}
+\end{table}
+
+
+\section{Enhancements of CP exchange model components}
+This section describes the ongoing technical enhancements on the CP criminal exchange models. The technical enhancements that will be discussed in this section will also be rated on the scale that the different criminal exchange models were rated on in Section 2. The results can be found in Table \ref{tables:dataExchangeCompared}.
+
+\subsection{The Onion Routing (TOR)}
+Routing traffic through different hops is a method of anony\-mizing internet browsing and has been used for several years \cite{patil1963high}. In 2004, Dingledine et al. \cite{dingledine2004tor} proposed the so called The Onion Routing (TOR) protocol in which traffic is routed through three different hops and is encrypted in such a way that hops along the way can only see the identity of the previous hop as being the sender and the identity of the next hop as being the destination. In other words the intermediate hops cannot see the identity of the sender that created the packet and the identity of the receiver where the generated packet was addressed to. This provides in principle maximum anonymity since hop 1 only knows the sender and hop 2; hop 2 only knows hop 1 and hop 3; hop 3 only knows hop 2 and the final destination. None of the hops are able to know both the sender and the receiver of the internet traffic. Since the encryption standards and security protocols are verified \cite{goldberg2006security} to be secure, if used properly, could provide high anonymity for CP users. Furthermore, \textit{TOR} provides the so called `hidden services'. Hidden services are websites that can only be accessed if their address is known (being a 16 character wide random address). The location of the hidden services remains a secret since accessing the address is provided through a rendezvous point. Connections from the rendezvous point to the sender or receiver are done through \textit{TOR} (and thus uses at least three hops). Visiting such hidden services is done by connecting to a rendezvous point through \textit{TOR} (meaning that the rendezvous does not know who the sender is), which then opens a connection to the hidden services through \textit{TOR} (meaning that hidden services doesn't know who the rendezvous point is). It could therefore be deduced that both the sender and the hidden service are not able to know the identity of the opponent. This also holds for the rendezvous point. This could stimulate CP users to upload and share CP material using hidden services that are specially designed for CP. In that way distributors and downloaders of CP are considered to be completely anonymous.
+
+\textit{TOR} is able to support various categories of the CP criminal exchange model, namely \textit{Hiding}, \textit{Distribution}, \textit{Downloading} and \textit{Storage}. This is rated with a + for the completeness of the criminal exchange model, see Table \ref{tables:dataExchangeCompared} since \textit{Production} step is not included in this model. The support of Anonymity and Distribution methods are both graded with a + +, since they can be well provided by the hidden services.
+
+\subsection{Freenet}
+\textit{Freenet} \cite{clarke2001freenet} provides similar features as the hidden services provided by \textit{TOR}. The exception is that everybody is partly able to share the hidden service. Freenet is a P2P-service which routes and disseminates requests, uploads and downloads among different users in chunks \cite{clarke2001freenet}. All chunks are requested through different hops and are therefore spread anonymously. The content is encrypted and chopped into chunks before spread through the network. Freenet can be used in either Darknet mode or Opennet mode, where networks are based upon friends only or on the entire user base, respectively.
+
+Freenet is able to model various categories of the CP criminal exchange model, namely \textit{Hiding}, \textit{Distribution} and \\ \textit{Downloading}. Since rarely requested parts disappear in the network, the \textit{Storage} category does not apply to Freenet. This is rated with a + / - for the completeness of the criminal exchange model, see Table \ref{tables:dataExchangeCompared}. The Anonymity Support and Distribution methods are well modeled. Therefore they are rated with a + +.
+
+\subsection{Anonymous remailers}
+Normal email traffic can be subject of investigation since the source address is exposed, leading to loss of anonymity. To regain this level of anonymity, anonymous remailers can be used, see e.g. \cite{danezis2003mixminion}. In general, they are used to forward an email to someone anonymously by stripping all identifiable information of the email leaving nothing but the bare text and the receiver. Some of these remailers offer additional features such as the ability of two-way communication by storing lists of senders and their email addresses (though, this is hazardous information that is being stored). Since this could still lead to the threat of being discovered by applying traffic analysis, Mixminion remailers can be used \cite{danezis2003mixminion}. This type of remailers take notion of the traffic analysis characteristics and use multi-hops to forward emails using e.g., delays and encryption. 
+
+\textit{Anonymous remailers} are able to support the distribution of CP material and the recruitment of costumers for CP websites. Since these processes are only involved in the Distribution, this is graded with a - - for the completeness of the criminal exchange model. Different design techniques of these remailers offer different levels of anonymity; it is often not very clear who runs a remailer and if it has not yet been hacked. It therefore can only get a grade of + for the ability of modeling anonymity. The number of distribution methods is not increased with the introduction of anonymous remailers, though, one of them (email) has been extended, it is therefore rated with a - on the modeling of distribution, see Table \ref{tables:dataExchangeCompared}.
+
+\subsection{TrueCrypt}
+\textit{TrueCrypt} is an on-the-fly encryption tool that can be used to encrypt either parts or complete harddisks. \textit{TrueCrypt} uses very strong cryptographic principles \cite{miao2010research} by which it can provide strong privacy if strong keys are used. \textit{TrueCrypt} can thus be used to encrypt parts of the harddisk containing CP material for storage. Furthermore, \textit{TrueCrypt} offers the option to use hidden volumes within such an encrypted partition. It is very difficult to detect and prove the existence of such a hidden volume, and it therefore provides plausible deniability of that hidden volume. A CP user could for example reveal the body of an encrypted partition which contains somewhat sensitive information, creating the plausible deniability for a hidden volume within the encrypted partition.
+
+Since \textit{TrueCrypt} only gives the possibility to model \textit{Storage}, it is rated with a - - on completeness of the exchange model. The plausible deniability makes it possible to rate with a + + on the ability to model Anonymity Support. \textit{TrueCrypt} does not provide any support for CP material Distribution and therefore it is rated with a - - on the modeling of Distribution, see Table \ref{tables:dataExchangeCompared}.
+
+\subsection{Anonymous credit cards}
+Paying for CP material has been declining according to some research results \cite{wortley2006child,wijk2009achter,beech2008internet} since police investigators have been investigating the flow of money to get a hold on downloaders of CP. Due to this fact, CP distributors who were in the business only for financial reasons have disappeared and the transaction type of exchange has been changed to interchange of CP material.
+
+\textit{Anonymous credit cards} can be used to perform a transaction that involves CP exchange anonymously. These credit cards can be bought using cash and can be used to perform payments online and offline. Furthermore, they can be used to perform transactions from other (anonymous) credit cards or stolen credit cards. This could be used to buy CP material online anonymously, without the possibility of tracing the transaction \cite{wall2007cybercrime}. Therefore, this can potentially be considered as being a new burst for commercial CP material distributed from countries with a lack of legislation on CP \cite{kierkegaard2008cybering}.
+
+\textit{Anonymous credit cards} only enhances the \textit{Distribution} category and is therefore rated with a - - on the completeness of the exchange model, see Table \ref{tables:dataExchangeCompared}. The anonymity that could possibly be modeled with anonymous credit cards is strong, though, these credit cards infer a few risks when used other than in the CP process. It is therefore rated with a + on the ability to model Anonymity Support. Since only the Payment method is enhanced and not the Distribution methods, the ability to model Distribution is rated with a - -.
+
+\subsection{Webcam hacking}
+There have been reports \cite{mishna2009ongoing,salomon2010examples} of viruses that can turn webcams on without that the user of the computer knowing. This could lead to serious problems within the \textit{Abuse recording} process, e.g. with grooming and consolidation being easier if children are confronted with secretly\\ recorded images or videos. 
+
+These \textit{Webcam hacks} only enhances the \textit{Production} category and are therefore rated with a - - on the completeness of the exchange model, see Table \ref{tables:dataExchangeCompared}. The anonymity that could possibly be modeled with \textit{Webcam hacks} is strong and it is rated with a + on the modeling of Anonymity Support. The Distribution modeling is not supported by \textit{Webcam hacks} and is rated with a - -.
+
+\begin{table}[!ht]
+\caption{Comparison of enhanced exchange methods}
+\begin{tabular}{|p{0.19\columnwidth}||p{0.15\columnwidth}|p{0.15\columnwidth}|p{0.15\columnwidth}|p{0.17\columnwidth}|}
+\hline
+\begin{sideways} \parbox{30mm}{\centering Technique} \end{sideways} & \begin{sideways} \parbox{30mm}{\centering Completeness of the criminal exchange model} \end{sideways} & \begin{sideways} \parbox{30mm}{\centering Modeling of Anonymity} \end{sideways} &  \begin{sideways} \parbox{30mm}{\centering Modeling of Distribution types} \end{sideways} & \begin{sideways} \parbox{30mm}{\centering Transaction type} \end{sideways} \\ \hline & \\[-1em]\hline
+TOR \cite{dingledine2004tor} & + & + + & + + & Not discussed \\ \hline
+Freenet \cite{clarke2001freenet} & +/- & + + & + +  & Not discussed \\ \hline
+Anonymous remailers \cite{danezis2003mixminion} & - - & + & - & Not discussed \\ \hline
+TrueCrypt \cite{miao2010research}   & - - & + + & - - & Not discussed \\ \hline
+Anonymous credit cards \cite{wall2007cybercrime}   & - - & + & - - & Money \\ \hline
+Webcam hacks \cite{mishna2009ongoing,salomon2010examples}   & - - & + & - - & Not discussed \\ \hline
+\end{tabular}
+\label{tables:dataExchangeCompared}
+\end{table}
+
+
+\section{Proposed Exchange Model}
+This section proposes a new CP criminal exchange model (Section 4.1 and 4.2) that is verified by the use of interviews with police detectives that are concerned with the recent arrests of several child pornography offenders (Section 4.3). 
+
+\subsection{Specification}
+A new criminal CP exchange model should be able to integrate most of the exchange models described in Sections 2 and 3. 
+Since the exchange model proposed by Faber et al. \cite{en2011phishing} provides the most complete criminal exchange model, it will be used as the main framework, see Figure \ref{fig:faber_01}.
+
+Some research results contradicted specific details of actions in the CP exchange model proposed by Faber et al. \cite{quayle2002paedophiles,krone2005international}. Furthermore, \cite{wijk2009achter} proposed to classify the distribution methods into four different categories of distribution. The \textit{Downloading} category was included in multiple CP exchange models (see Figures \ref{fig:callanan_01}, \ref{fig:wijk_01} and \ref{fig:wortley_01}) but was not included in Faber et al.'s model.
+These differences have been added to the original CP exchange model proposed by Faber et al., see Figure \ref{fig:newModel}.
+
+The step that is missing in the CP exchange model of Faber et al. and is strongly supported in other exchange models, e.g., in Callanan et al. \cite{callanan2009internet} TOR and Freenet, is related to Anonymity support. Therefore, the proposed exchange model will enhance the CP exchange model proposed by Faber et al. with the process \textit{Anonymity support}, see Figure \ref{fig:newModel}. As can be seen the \textit{Anonymity support} process impacts all other processes. This is due to the fact that Anonymity support can be applied on any of the CP exchange model processes proposed by Faber et al.
+In addition to this enhancement, each of the processes/steps encompassed in the enhanced CP exchange model should also include all possible known alternatives that can be used to realize the process. 
+Based on the information provided in Sections 2 and 3, we distinguish the following alternative solutions per each enhanced CP exchange model process.
+\subsubsection{Production}
+The possible alternative solutions that can be used to fulfill the \textit{Production} category and are described in Sections 2 and 3 are the following:
+\begin{itemize}
+	\item Abuse recording, see Section 2.1 and 3.6.\\
+		Abuse recording and the used solutions can be found in Faber et al. \cite{en2011phishing}. An additional solution that can be classified in the \textit{Abuse recording} process is the \textit{Webcam hacking} described in \cite{mishna2009ongoing,salomon2010examples}.
+\end{itemize}
+
+\subsubsection{Hiding}
+The possible alternative solutions that can be used to fulfill the \textit{Hiding} category and are described in Sections 2 and 3 are the following:
+\begin{itemize}
+	\item Coding, see Section 2.1.\\
+		Coding solutions can be found in Faber et al. \cite{en2011phishing}. The described features by Faber et al. are more elaborated in \cite{wortley2006child, jenkins2001beyond,wolak2005child}.
+		\begin{itemize}
+			\item \textit{Untraceability}: the disguise of the origin of the CP material. This mainly describes the deletion of metadata of a file.
+			\item \textit{Invisibility}: the disguise of CP material without the use of external software. This mainly describes the altering of file extensions and filenames.
+			\item \textit{Illegibility}: the encryption of CP material.
+			\item \textit{Unrecognizability}: the disguise of CP material with the use of external software. This mainly describes the stenography used to hide CP material inside other files and traffic.
+		\end{itemize}
+\end{itemize}
+
+\subsubsection{Distribution}
+The possible alternative solutions that can be used to fulfill the \textit{Distribution} category and are described in Sections 2 and 3 are the following:
+\begin{itemize}
+	\item Acquire domain and hosting, see Section 2.1\\
+		Acquire domain and hosting are described by Faber et al. \cite{en2011phishing}.
+	\item Acquire customers, see Section 2.1, 2.2, 2.3 and 3.3.\\
+		The acquiring of customers is described by Faber et al. \cite{en2011phishing}, Wortley et al. \cite{wortley2006child}, Van Wijk et al. \cite{wijk2009achter} and is enhanced by the use of \textit{Anonymous remailers} \cite{wall2007cybercrime}.
+	\item Payment, see Sections 2.1, 2.3, 3.1, 3.2 and 3.5.\\
+		Payment is originally described by Faber et al. \cite{en2011phishing} as financial transaction (money) and interchange of CP material, Van Wijk et al. In particular \cite{wijk2009achter} elaborates and motivates the use of payment and interchange of CP material. Both processes are enhanced by the use of \textit{TOR} \cite{dingledine2004tor}, \textit{Freenet} \cite{clarke2001freenet} and \textit{Anonymous credit cards} \cite{wall2007cybercrime}.
+	\item Distribution, see Sections 2.1, 2.2, 2.3, 2.4, 3.1, 3.2 and 3.3.\\
+		Distribution is roughly described by Faber et al. \cite{en2011phishing}, Wortley et al. \cite{wortley2006child} and Van Wijk et al. \cite{wijk2009achter} and is more elaborated by Callanan et al. \cite{callanan2009internet}. This process is enhanced by the use of \textit{TOR} \cite{dingledine2004tor}, \textit{Freenet} \cite{clarke2001freenet} and \textit{Anonymous remailers} \cite{wall2007cybercrime}.
+\end{itemize}
+
+\subsubsection{Downloading}
+The possible alternative solutions	 that can be used to fulfill the \textit{Downloading} category and are described in Sections 2 and 3 are the following:
+\begin{itemize}
+	\item Downloading, see Sections 2.2, 2.3, 2.4, 3.1 and 3.2.\\
+		Downloading is only briefly mentioned by Wortley et al. \cite{wortley2006child}, Callanan et al. \cite{callanan2009internet}. In particular, \cite{callanan2009internet} elaborate this process in more detail. Characteristics of downloaders are described by Van Wijk et al. \cite{wijk2009achter}. The enhancements introduced by \textit{TOR} \cite{dingledine2004tor} and \textit{Freenet} \cite{clarke2001freenet} can also be applied to this process.
+\end{itemize}
+
+\subsubsection{Storage}
+The possible alternative solutions that can be used to fulfill the \textit{Storage} category and are described in Sections 2 and 3 are the following:
+\begin{itemize}
+	\item Storage, see Sections 2.1, 2.3 and 3.4.\\
+		Storage is briefly described by Faber et al. \cite{en2011phishing}. Van Wijk et al. \cite{wijk2009achter} describes this process in more detail and introduces some aspects of \textit{physical storage}. \textit{TrueCrypt} \cite{miao2010research} enhances this process.
+\end{itemize}
+
+\subsubsection{Anonymity support}
+The possible alternative solutions that can be used to fulfill the ongoing \textit{Anonymity support} and are described in Sections 2 and 3 are the following:
+\begin{itemize}
+	\item Production
+		\begin{itemize}
+			\item Webcam hacks, see Section 3.6.\\
+				\textit{Webcam hacks} \cite{mishna2009ongoing,salomon2010examples} provides anonymity for producers of CP material. Producers can groom and consolidate children into recording CP material using their own webcam if they are confronted with secretly earlier recorded material by the producer.
+		\end{itemize}
+	\item Hiding
+		\begin{itemize}
+			\item Hiding identity, see Section 2.1.\\
+				\textit{Unrecognizability}, \textit{illegibility}, \textit{invisibility} and \textit{untraceability} of CP material provide additional anonymity for the producer of this CP material \cite{en2011phishing}. These techniques can be used to hide the identity of the producer before it gets distributed to a distributer.
+		\end{itemize}
+	\item Distribution
+		\begin{itemize}
+			\item \textit{Anonymous credit cards}, see Section 3.5.\\
+				\textit{Anonymous credit cards} \cite{wall2007cybercrime}: provides\\ additional anonymity for distributers to register their domain and hosting. It also enhances the payment process.
+			\item \textit{Anonymous remailers}, see Section 3.3.\\
+				\textit{Anonymous remailers} \cite{wall2007cybercrime}: provides additional anonymity for distributers to acquire customers for their commercial CP website.
+			\item \textit{TOR}, see Section 3.1.\\
+				\textit{TOR} \cite{dingledine2004tor}: provides additional anonymity for costumers of commercial CP websites. It furthermore enhances the anonymity of other CP related internet surfing.
+			\item \textit{Hidden services} by \textit{TOR}, see Section 3.1.\\
+				\textit{TOR} \cite{dingledine2004tor}: provides additional anonymity for distributors of CP material.
+			\item \textit{Freenet} (Darknet mode), see Section 2.4 and 3.2.\\
+				\textit{Freenet} \cite{clarke2001freenet, callanan2009internet}: provides additional anonymity for distributors of CP material.
+		\end{itemize}
+	\item Downloading
+		\begin{itemize}
+			\item \textit{TOR}, see Section 3.1.\\
+				\textit{TOR} \cite{dingledine2004tor}: provides additional anonymity for downloaders / viewers of CP material.
+			\item \textit{Freenet} \cite{clarke2001freenet,callanan2009internet} (Darknet mode), see Section 2.4 and 3.2.\\
+				\textit{Freenet} \cite{clarke2001freenet,callanan2009internet}: provides additional anonymity for downloaders of CP material.
+		\end{itemize}
+	\item Storage
+		\begin{itemize}
+			\item textit{Storage}, see Section 3.4.\\
+				\textit{TrueCrypt} \cite{miao2010research}: provides additional anonymity for the storage of CP material.
+		\end{itemize}
+\end{itemize}
+Several processes in the proposed criminal CP exchange model can be modeled in combination with the Anonymity support process, see Figure \ref{fig:newModel}.
+
+\subsection{Graphical representation}
+This section describes how the reader should interpret the graphical representation in Figure \ref{fig:newModel}. The graphical representation of the model is roughly built as an activity diagram as proposed by the UML standard \cite{eriksson2000business}. The process starts with the closed circle on the left going to the first category, which is \textit{Production}. Each arrow represents the closure of one step and the beginning of a new one (the start and the end of the arrow respectively). After the first few processes, there is a branch / choice (drawn as a black rectangle) after which there are three different methods of distribution. The post-order distribution is not included in this research. After the \textit{Distribution}, \textit{Downloading} and \textit{Storage} categories, the steps end in the closed circle with the open circle around it.
+
+\begin{figure*}[ht]
+\centering
+\includegraphics[scale = 0.8, trim = 0 530 0 0]{images/newModel.pdf}
+\caption{Proposed criminal CP exchange model}
+\label{fig:newModel}
+\end{figure*}
+
+\subsection{Verification}
+The verification of this newly proposed criminal CP exchange model is done by interviewing seven police detectives involved in the recent CP cases in the Netherlands. They belong to the Netherlands' police agency (governmental police agency). The detectives that have been interviewed have different backgrounds in CP or IT studies.
+
+In general the police detectives agree with the newly structured sequence of events in the criminal CP exchange process. They see it as a valuable addition to the earlier proposed exchange model by Faber et al. (Figure \ref{fig:faber_01}) and where different \textit{Distribution} methods are split according to the results provided by Van Wijk et al. (Figure \ref{fig:wijk_01}). The police detectives are not convinced that the \textit{Editing} process should not be included in the \textit{Hiding} category. They argue that the \textit{Editing} process also involves the masking of the child abuser and therefore belongs to the \textit{Hiding} category.
+
+The results of the interview with the police detectives about the new proposed exchange model are analyzed and given below:
+\begin{itemize}
+	\item \textit{Production}\\
+		\textit{Abuse recording}: The use of the \textit{Abuse Recording} step defined by Faber et al. \cite{en2011phishing} is found by the detectives to be modeled satisfactorily enough in order to describe the \textit{Production} process. The enhancement described by the \textit{Webcam hacking} \cite{mishna2009ongoing, salomon2010examples} has not been observed by the interviewed police detectives in practice (i.e. during their daily work) yet. Though, colleague detectives from foreign countries have observed child abusers chatting about this option, but it is not certain whether it has really happened and used in practice.
+	\item \textit{Hiding}\\
+		\textit{Coding}: The mentioned techniques deduced from Faber et al. \cite{en2011phishing} \textit{untraceability}, \textit{invisibility}, \textit{illegibility} and \textit{unrecognizability} are partly recognized by the police detectives. In particular, they have observed several of cases in practice where the encryption (\textit{illegibility}) and deletion of metadata (\textit{untraceability} have been used. The use of external software (stenography in \textit{unrecognizability}) though, is hardly observed in practice.
+	\item \textit{Distribution}
+		\begin{itemize}
+			\item \textit{Acquire domain and hosting}: these processes are observed by police detectives in practice, though, only in foreign countries. Up to now, the police have not seen any cases in which Dutch CP users have registered Internet based domains and hosting to build a commercial CP website. The information deduced from Faber et al. \cite{en2011phishing} is found as being accurate, since the detectives have observed this activity also in practice.
+			\item \textit{Acquire customers}: as with the \textit{Acquire domain and hosting} processes, police detectives were only aware of foreign cases in which the active \textit{acquiring of customers} is observed. The use of \textit{Anonymous remailers} as suggested by the enhancements though, has not yet been observed in practice.
+			\item \textit{Payment}: as with the \textit{Acquire domain, hosting and customers} processes, police detectives were only aware of foreign cases in which the receiving of \textit{Payments} were processed. Though, there are cases in which Dutch CP users have paid to watch CP material on commercial websites and where in all of these cases, \textit{credit card payments} or different \textit{emoney payments} were made. The enhancement proposed by the \textit{Anonymous credit cards} have not been observed by the police detectives, in practice. The detectives do not expect to see this activity happening in the future in the Netherlands since buying such \\ \textit{Credit Cards} in the Netherlands is really hard.
+			\item \textit{Distribution}: the distribution that is proposed by Faber et al. \cite{en2011phishing}, Wortley et al. \cite{wortley2006child} and Van Wijk et al. \cite{wijk2009achter} are found by the detectives to be outdated. The new distribution methods are far more anonymized (e.g., Freenet \cite{clarke2001freenet} and TOR hidden services \cite{dingledine2004tor}). Therefore the proposed enhancements are found to be very valuable. Usenet, Fora, FTP, e-mail, etc. are not anymore being observed by police detectives in their daily police activities.
+		\end{itemize}
+	\item \textit{Downloading}\\
+		\textit{Downloading}: the police detectives emphasized that the most of the downloading takes place anonymously since the \textit{distribution} only prescribe downloading\\ methods that are anonymous. Among them are browsing with the use of \textit{TOR} \cite{dingledine2004tor} and downloading CP material with the use of \textit{Freenet} \cite{clarke2001freenet}. The police detectives emphasized that the characteristics that are described by Van Wijk et al. \cite{wijk2009achter} give a valuable insight into the group of CP users.
+	\item \textit{Storage}\\
+		\textit{Storage}: the police detectives expected an elaborated description on the categorization obsession of CP material downloaders. The obsession is roughly described by Van Wijk et al. \cite{wijk2009achter} in the \textit{Downloading} process, but it could also be stretched/placed to the \textit{Storage} process, since it influences the way the storage of CP material is arranged. The enhancement of the \textit{Storage} process with the use of \textit{TrueCrypt} is sometimes observed in practice, but not often.
+\end{itemize}
+
+
+\section{Conclusions and Future Work}
+This paper focused on how the currently used main criminal exchange models of child pornography can be adapted in order to describe (1) the current child pornography user behavior and (2) the new Internet based communication media and anonymization techniques used by child pornography offenders. Several research questions are derived and are answered by this paper.
+
+Section 2 answers research question (1), by describing four different criminal CP exchange models \cite{en2011phishing, wortley2006child, wijk2009achter, callanan2009internet}. Faber et al. \cite{en2011phishing} is the most elaborated model.
+
+Section 3 answers research question (2), by providing the technical enhancements on the CP criminal exchange models. In particular, six different enhancements to the existing CP exchange models were given, including \textit{The Onion Routing}, \textit{Freenet}, \textit{Anonymous remailers}, \textit{TrueCrypt}, \textit{Anonymous credit cards} and \textit{Webcam hacks}.
+
+Section 4 answers research question (3) by proposing a new criminal CP exchange model that is verified by using interviews with seven police detectives of the Netherlands' police agency that are concerned with the recent arrests of several child pornography offenders. The newly proposed CP exchange model has found its basis in the model proposed by Faber et al. \cite{en2011phishing} since this is the most elaborated one. 
+
+The enhancements made to the model by Faber et al. include (1) process enhancements and (2) technical enhancements. The process enhancements make it clearer that there is a distinction between three different distribution techniques: commercial websites, post-order and open / closed networks. The technical enhancements model is related to the Anonymity support that is omitted in the model proposed by Faber et al. \cite{en2011phishing} and other researches. By analyzing these enhancements, including  the earlier proposed anonymization techniques, it could be deduced that \textit{Anonymity} impacts all processes available in the criminal CP exchange model.
+
+Future work includes three major research activities that could be undertaken. First of all, the list of enhancements proposed in Section 3 of this research is far from complete. These enhancements are selected by the mere creativity of the author and could be researched more thoroughly (possibly including police detectives). The verification of the proposed model should be performed more thoroughly. This could be done using case studies based on real police cases, or by interviewing a higher number of police detectives, e.g. from local police agencies or from other countries.
+Finally, the effectiveness of this new proposed model should be measured in practice.
+
+\bibliographystyle{abbrv}
+\bibliography{paper}
+\vspace{50 mm}
+%APPENDICES are optional
+
+
+\balancecolumns
+\end{document}
