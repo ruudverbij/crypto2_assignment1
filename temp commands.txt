@@ -1,7 +1,0 @@
-git show <rev>:<file_new> | Out-File -encoding ASCII -Width 2147483647 <file_old>
-latexdiff <file_old> <file_new> > <file_diff>
-
-
-
-forfiles /m *.tex /c "git show %REV:@FILE | Out-File -encoding ASCII -Width 2147483647 old_@FILE"
-forfiles /m *.tex /c "latexdiff old_@FILE @FILE > diff_@FILE"
