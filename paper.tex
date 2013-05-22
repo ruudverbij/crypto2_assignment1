@@ -7,9 +7,8 @@
 \usepackage{caption}
 \graphicspath{{Images/}}
 
-\title{Internet Attribute Certificate Profile for Authorization - An Analyses}
-\author{Ruud Verbij}
-%begin document
+\title{Internet Attribute Certificate Profile for Authorization (RFC5755) - A Cryptographic Analyses}
+\author{Ruud Verbij \\ Student at the University of Twente \\ crypto@ruudverbij.nl}
 \begin{document}
 \maketitle
 
@@ -18,18 +17,71 @@ ABSTRACT
 \end{abstract}
 
 \begin{IEEEkeywords}
-Keywords
+Attribute Certificate, Public Key Infrastructure, RFC5755, PKI, AC, Cryptography
 \end{IEEEkeywords}
 
 \label{Introduction}
 \section{Introduction}
-Below is a list of 8 RFC assignments. Read and study the RFC (skip the very technical stuff such as ASN.1, focus on cryptographic and PKI matters). Then give a summary of the RFC on a high level, addressing the following issues:
-\begin{enumerate}
-	\item How does this RFC fit in the entire PKI picture? Who is expected to use this RFC,what for, and how?
-	\item What are the security requirements outlined in this RFC? What security problems does it attempt to solve? What (cryptographic) attacks does it defend against?
-	\item Give an overview of the solution that the RFC proposes. How is cryptography used in meeting the security requirements, solving the security problems, defending against the attacks?
-\end{enumerate}
+This paper outlines some of the cryptographic aspects offered by the Attribute Certificates\cite{rfc_ac} to the Public Key Infrastructure as defined by X.509\cite{rfc_x509}. Attribute Certificates (AC) is currently (may 2013) a \textit{Proposed Standard} with the IETF and is awaiting approval for the \textit{Draft Standard} category. The RFC5755 which covers AC's will obsolete an old IETF document describing AC's\cite{rfc_oldac}.
+
+The structure of this paper is as follows, Section~\ref{ac_in_pki} will introduce AC's. It covers the role of AC's within the entire PKI, the expected users and their usage of AC's. Section~\ref{cryptography_in_ac} describes what additional security features the use of AC brings and what role cryptography plays. Section~\ref{security_requirements} covers the security requirements involved when using AC's.  
+
+This paper in no way presents a complete overview of the use of AC's within PKI. The reader is refered to \cite{rfc_ac} when working with, or having interest in the use of AC's within a PKI. The author is in no way responsible for any damage caused by this paper. The paper is written for Computer Science experts, especially those with interest in PKI and cryptography. This paper mainly consists of information from the RFC~\cite{rfc_ac}, except for statements which are followed by another reference.
+
+\label{ac_in_pki}
+\section{Attribute Certificates in the Public Key Infrastructure}
+How does this RFC fit in the entire PKI picture? Who is expected to use this RFC,what for, and how?
+\subsection{Introduction to AC}
+AC's are just like PKI certificates, except for the fact they lack a public key. This is due to the fact that AC's are not used for any cryptographic purposes. The main idea of an AC is to bind attributes to a PKI certificate (PKC) which cover topics like access control, data origin authentication, non-repudiation, etc. They typically belong to one or more PKCs, belong to can be read as \textit{signed by}, more on that in Section~\ref{cryptography_in_ac}.
+
+One may ask \textit{why} we need ACs when we already have PKC which tend to have more features (a public key). The use of ACs extends PKCs in the following way. It provides a \textit{temporary} set of attributes, binded to an identity (PKC) within an organisation. These attributes range from group identities, roles and clearance to charging identities and audit identities. It furthermore transfers the capabilities of granting access or authorization from the general PKC issuer within an organisation to special authorization authorities.
+
+ACs are typically used for granting this explicit \textit{temporary} access to a group or a role. This ensures a longer lifetime of the PKC binded to this AC. When the access or role for this individual for the service belonging to the AC is revoked or timed out, the AC is no longer valid, but the PKC can still be used.
+
+\subsection{Examples of usage}
+when used? --> auth, data origin auth, non-repudiation
+\subsection{Public Key Infrastructure to fit AC in}
+what does the infrastructure look? --> push and pull
+
+\label{cryptography_in_ac}
+\section{Cryptography in Attribute Certificates}
+Give an overview of the solution that the RFC proposes. How is cryptography used in meeting the security requirements, solving the security problems, defending against the attacks?
+--> what crypto is used how
+
+\label{security_requirements}
+\section{Security Requirements}
+What are the security requirements outlined in this RFC? What security problems does it attempt to solve? What (cryptographic) attacks does it defend against?
+
 \bibliographystyle{IEEEtran}
 \bibliography{IEEEabrv,literature}
-
 \end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
