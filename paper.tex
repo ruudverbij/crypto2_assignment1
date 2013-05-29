@@ -44,6 +44,21 @@ ACs are typically used for granting this explicit \textit{temporary} access to a
 
 The RFC~\cite{rfc_ac} compares PKCs to passports and ACs to Visa's. Passports tend to have a longer lifetime than Visa's, and the Visa's are binded to the identity of the owner by their passport. This analogy describes the use of ACs quite good, as Visa's also describe access control. But it lacks some of the extra features ACs offer, which will be described in the next subsection.
 
+ Figure~\ref{fig:diff} shows the differences between an AC and a PKC. As can be seen, ACs hold a value referring to the holder. The RFC~\ref{rfc_ac} prescripes three ways in which such an AC can be bound to a PKC, of which only one may be used per AC.
+\begin{itemize}
+	\item \textit{baseCertificateID}, the issuer and serial number of the holder's PKC. "For any environment where the AC is passed in an authenticated message or session and where the authentication is based on the use of an X.509 PKC, the Holder field SHOULD use the baseCertificateID."~\cite{rfc_ac}
+	\item \textit{entityName}, the name of the claimant or role. This name must the same as on the PKC.
+	\item \textit{objectDigestInfo}, used to directly authenticate the holder. Which contains the certificate used itself.
+\end{itemize}
+Furthermore, it has a value containing the attributes belonging to this AC.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{diff.png}
+	\caption{Differences between PKC and AC~\cite{godavari2001secure}}
+	\label{fig:diff}
+\end{figure}
+
 \subsection{Examples of usage}
 An AC can be used in different security related services. "As an example it could also be used to certify authorization information related to a public key. More specifically, it may be used to limit the liability resulting from a digital signature, or to constrain the usage of a public key (e.g., transaction of a limited value, certain time windows, etc.)."~\cite{tilborg2011encyclopedia}.
 
@@ -59,10 +74,17 @@ Different default attributes have been proposed, some of which are listed below.
 More rough examples~\cite{tilborg2011encyclopedia} indicate the use of ACs for DRM-secured devices. ACs could grant applications the right to install itself on devices like iPads and alike.
 
 \subsection{Public Key Infrastructure to fit AC in}
-what does the infrastructure look? --> push and pull
+To use ACs within an organisation, there are mainly two implementation defaults, the so called \textit{push} and \textit{pull} models. This paper roughly describes the main arguments for choosing either of the two.
+
+The \textit{push} model requires the AC holder to own his AC. When speaking to the Server, he/she is required to attach the AC with the request. "The 'push' model is suitable in application where the client's permissions should be authenticated/validated in the client's 'home' domain."~\cite{godavari2001secure} This means that no new connections need to be set up between the Server and other parties, as will be in the \textit{pull} model.
+
+The \textit{pull} model requires the Server to retrieve the AC from a repository or an AC issuer. This means the implementation does not involve a change in the client-server protocol, which has benefit over the \textit{push} method when implemented within an existing infrastructure. "The 'pull' model is suitable when the client's priviliges should be authenticated in the inter-domain"~\cite{godavari2001secure} Furthermore, there is no need to update client's ACs when they expire, this can be done within the repository or AC issuer.
 
 \section{Cryptography in Attribute Certificates}
 \label{cryptography_in_ac}
+This Section describes the role of cryptography within the use of ACs.
+
+
 Give an overview of the solution that the RFC proposes. How is cryptography used in meeting the security requirements, solving the security problems, defending against the attacks?
 --> what crypto is used how
 
