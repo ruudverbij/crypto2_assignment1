@@ -13,7 +13,7 @@
 \maketitle
 
 \begin{abstract}
-This paper touches upon some of the cryptographic and PKI elements concerned with Attribute Certificates. These attributes are used to extend the lifetime and functionality of regular Public Key Certificates in a Public Key Infrastructure. The Attribute Certificates are binded to a Public Key Certificate, have a shorter lifetime (quite temporarily) and add attributes from specific services to the Public Key Certificate. The attributes support all sorts of functionality, including authorization, access regulation, charging mechanisms and much more. This paper draws some of the characteristics and usage of Attribute Certificates in a Public Key Infrastructure, aswell as providing the reader with some security requirements when working with them.
+This paper touches upon some of the cryptographic and PKI elements concerned with Attribute Certificates. These Attribute Certificates are used to extend the lifetime and functionality of regular Public Key Certificates in a Public Key Infrastructure. The Attribute Certificates are binded to a Public Key Certificate, have a shorter lifetime (quite temporarily) and add attributes from specific services to the Public Key Certificate. The attributes support all sorts of functionality, including authorization, access regulation, charging mechanisms and much more. This paper draws some of the characteristics and usage of Attribute Certificates in a Public Key Infrastructure, aswell as providing the reader with some security requirements when working with them.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -22,22 +22,22 @@ Attribute Certificate, Public Key Infrastructure, RFC5755, PKI, AC, Cryptography
 
 \section{Introduction}
 \label{Introduction}
-This paper outlines some of the cryptographic aspects offered by the Attribute Certificates\cite{rfc_ac} to the Public Key Infrastructure as defined by X.509\cite{rfc_x509}. Attribute Certificates (AC) is currently (may 2013) a \texttt{Proposed Standard} with the IETF and is awaiting approval for the \texttt{Draft Standard} category. The RFC5755 which covers AC's will obsolete an old IETF document describing AC's\cite{rfc_oldac}.
+This paper outlines some of the cryptographic aspects offered by the Attribute Certificates\cite{rfc_ac} to the Public Key Infrastructure as defined by X.509\cite{rfc_x509}. Attribute Certificates (AC) is currently (may 2013) a \texttt{Proposed Standard} with the IETF and is awaiting approval for the \texttt{Draft Standard} category. The RFC5755 which covers AC's will obsolete an old IETF document describing ACs\cite{rfc_oldac}.
 
-The structure of this paper is as follows, Section~\ref{ac_in_pki} will introduce AC's. It covers the role of AC's within the entire PKI, the expected users and their usage of AC's. Section~\ref{cryptography_in_ac} describes what additional security features the use of AC brings and what role cryptography plays. Section~\ref{security_requirements} covers the security requirements involved when using AC's.  
+The structure of this paper is as follows, Section~\ref{ac_in_pki} will introduce ACs. It covers the role of ACs within the entire PKI, the expected users and their usage of ACs. Section~\ref{cryptography_in_ac} describes what additional security features the use of AC brings and what role cryptography plays. Section~\ref{security_requirements} covers the security requirements involved when using ACs.  
 
-This paper in no way presents a complete overview of the use of AC's within PKI. The reader is refered to \cite{rfc_ac} when working with, or having interest in the use of AC's within a PKI. The author is in no way responsible for any damage caused by this paper. The paper is written for Computer Science experts, especially those with interest in PKI and cryptography. This paper mainly consists of information from the RFC~\cite{rfc_ac}, except for statements which are followed by another reference.
+This paper in no way presents a complete overview of the use of ACs within PKI. The reader is referred to \cite{rfc_ac} when working with, or having interest in the use of ACs within a PKI. The author is in no way responsible for any damage caused by this paper. The paper is written for Computer Science experts, especially those with interest in PKI and cryptography. This paper mainly consists of information from the RFC~\cite{rfc_ac}, except for statements which are followed by another reference.
 
 \section{Attribute Certificates in the Public Key Infrastructure}
 \label{ac_in_pki}
 This section of the paper covers several topics, including an introduction to ACs, examples of usage and the Infrastructure necessary to work with  ACs. The purpose of this section is to describe the role of ACs in the entire picture of PKIs.
 \subsection{Introduction to AC}
-To begin with, AC's are just like PKI certificates, except for the fact they lack a public key. This is due to the fact that AC's are not used for any cryptographic purposes, but serve a different role. The main idea of an AC is to bind attributes to the identity of an individual through his/her PKI certificate (PKC). The attritbutes cover topics like access control, group identity, data origin authentication, etc. They belong to one PKC in the sense that they are signed by a PKC, more on that in Section~\ref{cryptography_in_ac}.
+To begin with, ACs are just like PKI certificates, except for the fact that they lack a public key. This is due to the fact that ACs are not used for any cryptographic purposes, but serve a different role. The main idea of an AC is to bind attributes to the identity of an individual through his/her PKI certificate (PKC). The attributes cover topics like access control, group identity, data origin authentication, etc. They belong to one PKC in the sense that they are mentioned in the AC, more on that in Section~\ref{cryptography_in_ac}.
 
 One may ask \textit{why} we need ACs when we already have PKC, which tend to have more features (a public key ie.). The introduction of ACs actually extends the usability of PKCs. This extention can be split into two different gains:
 \begin{itemize}
 	\item It provides for a \textit{temporary} set of attributes to be binded to an identity within an organisation. These attributes range from group identities, roles and clearance to charging identities and audit identities. 
-	\item ACs allow for the transfer of granting access or authorization, from the general PKC issuer within an organisation to special authorization authorities.
+	\item ACs allow for the transfer of granting access or authorization, from the general PKC issuer within an organisation to special authorization authorities (AA).
 \end{itemize}
 
 ACs are typically used for granting this explicit \textit{temporary} access to a group or a role. This ensures a longer lifetime of the PKC binded to this AC. When the access or role for this individual for the service belonging to the AC is revoked or timed out, the AC is no longer valid, but the PKC can still be used. This is a major advantage to the use of PKCs for this purpose. It furthermore eases the general infrastructure of an organisation in the sense that the AC tells whether the binded identity (PKC) has access to this service instead of an online check for this access. AC' standard also offers the ability of AC revocation, more on that in Section~\ref{security_requirements}.
@@ -62,7 +62,7 @@ Furthermore, it has a value containing the attributes belonging to this AC.
 \subsection{Examples of usage}
 An AC can be used in different security related services. \textit{"As an example it could also be used to certify authorization information related to a public key. More specifically, it may be used to limit the liability resulting from a digital signature, or to constrain the usage of a public key (e.g., transaction of a limited value, certain time windows, etc.)."}~\cite{tilborg2011encyclopedia}.
 
-Different default attributes have been proposed, some of which are listed below.~\cite{benantar2006access,rfc_ac}
+Different default attributes have been proposed, some of which are listed below~\cite{benantar2006access,rfc_ac}.
 \begin{itemize}
 	\item \texttt{Service Authentication Information}, which identifies the AC holder to the service by name, with optional service-specific authentication information. This attribute could, by using some encryption scheme, also include the holder's identity and password.
 	\item \texttt{Charging identity}, which is used to charge the holder for the use of services.
@@ -78,7 +78,7 @@ To use ACs within an organisation, there are mainly two implementation defaults,
 
 The \texttt{push} model requires the AC holder to own his AC. When speaking to the Server, he/she is required to attach the AC with the request. \textit{"The 'push' model is suitable in application where the client's permissions should be authenticated/validated in the client's 'home' domain."}~\cite{godavari2001secure} This means that no new connections need to be set up between the Server and other parties, as will be in the \texttt{pull} model.
 
-The \texttt{pull} model requires the Server to retrieve the AC from a repository or an AC issuer. This means the implementation does not involve a change in the client-server protocol, which has benefit over the \texttt{push} method when implemented within an existing infrastructure. \textit{"The 'pull' model is suitable when the client's priviliges should be authenticated in the inter-domain"}~\cite{godavari2001secure} Furthermore, there is no need to update client's ACs when they expire, this can be done within the repository or AC issuer.
+The \texttt{pull} model requires the Server to retrieve the AC from a repository or an AC issuer. This means the implementation does not involve a change in the client-server protocol, which has benefit over the \texttt{push} method when implemented within an existing infrastructure. \textit{"The 'pull' model is suitable when the client's priviliges should be authenticated in the inter-domain"}~\cite{godavari2001secure} Furthermore, there is no need to update client's ACs when they are renewed, this can be done within the repository or AC issuer.
 
 Figure~\ref{fig:PKI_models} shows the different protocol possibilities within one figure. It shows the different possible actors (AC issuer, Client or AC Holder, Server or AC verifier and Repository) and their possible communication flows.
 
@@ -108,9 +108,9 @@ After the AC has been build, either the \texttt{push} or \texttt{pull} model can
 \end{enumerate}
 
 \subsection{Cryptography}
-ACs are signed by the AA using a Signature Algorithm which is specified within the AC. The algorithms allowed for the signature are listed in different RFCs~\cite{rfc_alg1,rfc_alg2,rfc_alg3,rfc_alg4}. The RFC~\cite{rfc_ac} states \textit{"The binding between an AC holder and attributes cannot be stronger than the cryptographic module implementation and algorithms used to generate the signature.  Short key lengths or weak hash algorithms will limit the utility of an AC. AC issuers are encouraged to note advances in cryptology so they can employ strong cryptographic techniques."} Which states clear that the responsibility for using cryptographic hash functions lies with the AA.
+ACs are signed by the AA using a Signature Algorithm which is specified within the AC. The algorithms allowed for the signature are listed in different RFCs~\cite{rfc_alg1,rfc_alg2,rfc_alg3,rfc_alg4}. The RFC~\cite{rfc_ac} states \textit{"The binding between an AC holder and attributes cannot be stronger than the cryptographic module implementation and algorithms used to generate the signature.  Short key lengths or weak hash algorithms will limit the utility of an AC. AC issuers are encouraged to note advances in cryptology so they can employ strong cryptographic techniques."} Which states clear that the responsibility for using proper Signing algorithms lies with the AA.
 
-The other cryptography that could be involved in ACs is the placement of login details (username and password) of an AC owner in the AC itself. In this case, ofcourse measures have to be taken to avoid plaintext passwords in the AC. The RFC~\cite{rfc_ac} let you decide upon proper cryptographic encryption functions necessary for the protection of the login credentials. The RFC~\cite{rfc_ac} suggests the use of Public Key Cryptography (encrypting with the Public Key of the Server or AC verifier). It is again the case that the AA is responsible for good cryptographic management of the issues mentioned previously.
+The other cryptography that could be involved in ACs is the placement of login details (username and password) of an AC owner in the AC itself. In this case, ofcourse measures have to be taken to avoid plaintext passwords in the AC. The RFC~\cite{rfc_ac} let the implementer decide upon proper cryptographic encryption functions necessary for the protection of the login credentials. The RFC~\cite{rfc_ac} suggests the use of Public Key Cryptography (encrypting with the Public Key of the Server or AC verifier). It is again the case that the AA is responsible for good cryptographic management of the issues mentioned previously.
 
 \section{Security Requirements}
 \label{security_requirements}
@@ -128,10 +128,10 @@ The RFC~\cite{rfc_ac} enumerates a set of requirements they meet with this RFC.
 \end{enumerate}
 
 \subsection{Security Requirements for Safe Use}
-Several security requirements for safe use of ACs are recommended by the RFC~\cite{rfc_ac}. This subsection discusses most of them. For a complete view of the requirements, the reader is reffered to the RFC~\cite{rfc_ac}.
+Several security requirements for safe use of ACs are recommended by the RFC~\cite{rfc_ac}. This subsection discusses most of them. For a complete view of the requirements, the reader is referred to the RFC~\cite{rfc_ac}.
 
 \begin{itemize}
-	\item Masquerading of the AA after the private keys have been compromised could lead to serious security problems. The ACs that are created by an attacker are checked offline a Server or AC verifier, and therefore can cause serious damage. Revocation of the AAs public key (trust in the AA) should be performed to overcome this problems. Detection could be quite hard, since offline verification is done. This is especially dangerious if the \texttt{push} model is used, in which a rogue client can easily send his rogue AC to the AC verifier.
+	\item Masquerading of the AA after the private keys have been compromised could lead to serious security problems. The ACs that are created by an attacker are checked offline by a Server or AC verifier, and therefore can cause serious damage. Revocation of the AAs public key (trust in the AA) should be performed to overcome this problems. Detection could be quite hard, since offline verification is possible. This is especially dangerious if the \texttt{push} model is used, in which a rogue client can easily send his rogue AC to the AC verifier.
 
 	\item If an AA loses his private keys, this also leads to serious problems. All revocation lists have to be signed by the AA, and therefore, revocation becomes a critical problem.
 
@@ -145,7 +145,7 @@ Several security requirements for safe use of ACs are recommended by the RFC~\ci
 \end{itemize}
 
 \subsection{AC Revocation}
-This paper mentioned AC revocation several times, this Section will explain the rough base for AC revocation as set by the RFC~\cite{rfc_ac}. Typically, the use of ACs is ment \textit{temporarily}, and therefore revocation should occur less often than one sees within a PKC-like environment. Though, since situations (like some mentioned in the previous subsection) could occur in which revocation is desired, the AC standard allows for mechanisms to revoke ACs. Two mechanisms exist.
+This paper mentioned AC revocation several times, this subsection will explain the rough base for AC revocation as set by the RFC~\cite{rfc_ac}. Typically, the use of ACs is ment \textit{temporarily}, and therefore revocation should occur less often than one sees within a PKC-like environment. Though, since situations (like some mentioned in the previous subsection) could occur in which revocation is desired, the AC standard allows for mechanisms to revoke ACs. Two mechanisms exist.
 
 The \texttt{Never revoke} scheme MUST be supported by all AC verifiers. This scheme lets ACs contain a possible \texttt{noRevAvail} field, which implicitly means that the status of the AC can be verified at the AA. This particular AC with the \texttt{noRevAvail} field set to true, will never end up on any revocation list and should therefore be checked at the AA.
 
