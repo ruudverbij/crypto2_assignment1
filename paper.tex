@@ -44,11 +44,11 @@ ACs are typically used for granting this explicit \textit{temporary} access to a
 
 The RFC~\cite{rfc_ac} compares PKCs to passports and ACs to Visa's. Passports tend to have a longer lifetime than Visa's, and the Visa's are binded to the identity of the owner by their passport. This analogy describes the use of ACs quite good, as Visa's also describe access control. But it lacks some of the extra features ACs offer, which will be described in the next subsection.
 
- Figure~\ref{fig:diff} shows the differences between an AC and a PKC. As can be seen, ACs hold a value referring to the holder. The RFC~\ref{rfc_ac} prescripes three ways in which such an AC can be bound to a PKC, of which only one may be used per AC.
+ Figure~\ref{fig:diff} shows the differences between an AC and a PKC. As can be seen, ACs hold a value referring to the holder. The RFC~\cite{rfc_ac} prescripes three ways in which such an AC can be bound to a PKC, of which only one may be used per AC.
 \begin{itemize}
 	\item \textit{baseCertificateID}, the issuer and serial number of the holder's PKC. "For any environment where the AC is passed in an authenticated message or session and where the authentication is based on the use of an X.509 PKC, the Holder field SHOULD use the baseCertificateID."~\cite{rfc_ac}
 	\item \textit{entityName}, the name of the claimant or role. This name must the same as on the PKC.
-	\item \textit{objectDigestInfo}, used to directly authenticate the holder. Which contains the certificate used itself.
+	\item \textit{objectDigestInfo}, used to directly authenticate the holder. This objectDigestInfo contains a hash of an object the AC is linked to.
 \end{itemize}
 Furthermore, it has a value containing the attributes belonging to this AC.
 
@@ -82,11 +82,24 @@ The \textit{pull} model requires the Server to retrieve the AC from a repository
 
 \section{Cryptography in Attribute Certificates}
 \label{cryptography_in_ac}
-This Section describes the role of cryptography within the use of ACs.
+This Section describes the role of cryptography within the use of ACs and the way ACs are constructed and issued by an AC issuer. Lets stress again that this section is not ment to give a complete overview of the cryptography involved with ACs.
 
+\subsection{Issueing of an Attribute Certificate}
+Within an organisation, there must be a clear seperation between a Certificate Authority (CA) and an Attribute Certificate Authority (AA) as prescribed by the RFC~\cite{rfc_ac}. Within the same organisation the public key of the AA is distributed and trusted, which means that documents signed by the AA are trusted directly and not via a PKC path. An AA can build an AC and sign it using his private key, which can later on be verified by a Server or Service (AC verifier).
 
-Give an overview of the solution that the RFC proposes. How is cryptography used in meeting the security requirements, solving the security problems, defending against the attacks?
---> what crypto is used how
+After the AC has been build, either the \textit{push} or \textit{pull} model can be used to either distribute the AC to the client, or to distribute it to the AC repository. AC verifiers will verify the validity of an AC for an action or authenticate using the following steps.~\cite{rfc_ac}
+\begin{enumerate}
+	\item The AC holder's PKC must be present, and the entire certification path of that PKC must be verified.
+	\item The AC signature must be cryptographically correct and the issuers PKC certification path must be verified.
+	\item The AC issuer must be trusted directly (as mentioned above, the ACs Public Key should be trusted).
+	\item The time for which the AC is being evaluated must be within the AC validity.
+	\item The AC must follow the standard.
+	\item The AC must not contain unsupported critical extensions.
+	\item The AC should not have been revoked.
+\end{enumerate}
+
+\subsection{Cryptography}
+ACs are signed by the AA using a Signature Algorithm which is specified within the AC. The algorithms allowed for the signature are listed in different RFCs~\cite{rfc_alg1,rfc_alg2,rfc_alg3,rfc_alg4}.
 
 \section{Security Requirements}
 \label{security_requirements}
