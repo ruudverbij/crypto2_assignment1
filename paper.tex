@@ -45,6 +45,17 @@ ACs are typically used for granting this explicit \textit{temporary} access to a
 The RFC~\cite{rfc_ac} compares PKCs to passports and ACs to Visa's. Passports tend to have a longer lifetime than Visa's, and the Visa's are binded to the identity of the owner by their passport. This analogy describes the use of ACs quite good, as Visa's also describe access control. But it lacks some of the extra features ACs offer, which will be described in the next subsection.
 
 \subsection{Examples of usage}
+An AC can be used in different security related services. "As an example it could also be used to certify authorization information related to a public key. More specifically, it may be used to limit the liability resulting from a digital signature, or to constrain the usage of a public key (e.g., transaction of a limited value, certain time windows, etc.)."~\cite{tilborg2011encyclopedia}.
+
+Different default attributes have been proposed, some of which are listed below.~\cite{benantar2006access,rfc_ac}
+\begin{itemize}
+	\item \textit{Service Authentication Information}, which identifies the AC holder to the service by name, with optional service-specific authentication information. This attribute could, by using some encryption scheme, also include the holder's identity and password.
+	\item \textit{Charging identity}, which is used to charge the holder for the use of services.
+	\item \textit{Role}, which is used to specify the role the holder has within a specific service.
+	\item \textit{Clearance}, which defines the clearance the holder has for specific information (secret, top-secret, etc.).
+	\item \textit{Group}, which describes the group the holder belongs to.
+\end{itemize}
+
 when used? --> auth, data origin auth, non-repudiation
 
 \subsection{Public Key Infrastructure to fit AC in}
