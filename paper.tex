@@ -32,7 +32,7 @@ This paper in no way presents a complete overview of the use of AC's within PKI.
 \label{ac_in_pki}
 This section of the paper covers several topics, including an introduction to ACs, examples of usage and the Infrastructure necessary to work with  ACs. The purpose of this section is to describe the role of ACs in the entire picture of PKIs.
 \subsection{Introduction to AC}
-To begin with, AC's are just like PKI certificates, except for the fact they lack a public key. This is due to the fact that AC's are not used for any cryptographic purposes, but serve a different role. The main idea of an AC is to bind attributes to the identity of an individual through his/her PKI certificate (PKC). The attritbutes cover topics like access control, group identity, data origin authentication, non-repudiation, etc. They belong to one PKC in the sense that they are signed by a PKC, more on that in Section~\ref{cryptography_in_ac}.
+To begin with, AC's are just like PKI certificates, except for the fact they lack a public key. This is due to the fact that AC's are not used for any cryptographic purposes, but serve a different role. The main idea of an AC is to bind attributes to the identity of an individual through his/her PKI certificate (PKC). The attritbutes cover topics like access control, group identity, data origin authentication, etc. They belong to one PKC in the sense that they are signed by a PKC, more on that in Section~\ref{cryptography_in_ac}.
 
 One may ask \textit{why} we need ACs when we already have PKC, which tend to have more features (a public key ie.). The introduction of ACs actually extends the usability of PKCs. This extention can be split into two different gains:
 \begin{itemize}
@@ -56,7 +56,7 @@ Different default attributes have been proposed, some of which are listed below.
 	\item \textit{Group}, which describes the group the holder belongs to.
 \end{itemize}
 
-when used? --> auth, data origin auth, non-repudiation
+More rough examples~\cite{tilborg2011encyclopedia} indicate the use of ACs for DRM-secured devices. ACs could grant applications the right to install itself on devices like iPads and alike.
 
 \subsection{Public Key Infrastructure to fit AC in}
 what does the infrastructure look? --> push and pull
